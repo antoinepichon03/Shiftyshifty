@@ -33,3 +33,12 @@ Welcome! Here are the rules and best practices to follow when working on this pr
 
 > 💡 These habits make it easier for everyone to follow progress, collaborate smoothly, and maintain a high-quality codebase.  
 > Have fun and happy coding!
+
+# Commande pour les Ploucs 
+démarrer le backend : 
+cd backend
+node index.js
+
+démarrer le frontend :
+cd frontend
+npm start
