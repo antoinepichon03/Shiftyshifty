@@ -1,0 +1,43 @@
+.navigation-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.nav-button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
+}
+
+.welcome-container {
+  text-align: center;
+}
+
+.welcome-title {
+  color: #1976d2;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-subtitle {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}

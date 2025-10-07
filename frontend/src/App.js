@@ -1,7 +1,17 @@
+import React, { useState } from 'react';
+import Navigation from './components/Navigation/Navigation';
+import Planning from './components/Planning/Planning';
+import Reservation from './components/Reservation/Reservation';
+import PriseCommande from './components/PriseCommande/PriseCommande';
+import FichesPayes from './components/FichesPayes/FichesPayes';
+import Connexion from './components/Connexion/Connexion';
+
 const containerStyle = {
   textAlign: "center",
   marginTop: "20vh"
 };
+
+
 const titleStyle = {
   color: "#1976d2",
   fontSize: "3rem"
@@ -10,7 +20,7 @@ const pStyle = {
   color: "#444",
   fontSize: "1.2rem"
 };
-
+  
 const headerStyle = {
     position: "fixed",
     top: 0,
@@ -40,6 +50,34 @@ const headerStyle = {
 
 
 function App() {
+  const [currentSection, setCurrentSection] = useState('accueil');
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleNavigation = (section) => {
+    setCurrentSection(section);
+  };
+
+  const handleReturnHome = () => {
+    setCurrentSection('accueil');
+  };
+
+  const renderContent = () => {
+    switch(currentSection) {
+      case 'planning':
+        return <Planning onReturnHome={handleReturnHome} />;
+      case 'reservation':
+        return <Reservation onReturnHome={handleReturnHome} />;
+      case 'commande':
+        return <PriseCommande onReturnHome={handleReturnHome} />;
+      case 'fiches-payes':
+        return <FichesPayes onReturnHome={handleReturnHome} />;
+      case 'connexion':
+        return <Connexion onReturnHome={handleReturnHome} />;
+      default:
+        return <Navigation onNavigate={handleNavigation} />;
+    }
+  };
+
   return (
     <div style={containerStyle}>
        <header style={headerStyle}>
@@ -48,6 +86,7 @@ function App() {
         </div>
         <button
           style={loginButtonStyle}
+          onClick={() => setCurrentSection('connexion')} // ← Changer ici
           onMouseOver={e => {
             e.target.style.background="#1565c0";
             e.target.style.color="#fff";
@@ -60,8 +99,8 @@ function App() {
           Connexion
         </button>
       </header>
-      <h1 style={titleStyle}>Bienvenue sur Shyfty</h1>
-      <p style={pStyle}>shyfty et tout, on est content</p>
+      
+      {renderContent()}
     </div>
   );
 }
